@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  java_app:
+    image: rastasheep/ubuntu-sshd
+    expose:
+      - "22"
+    hostname: java_app
+  nginx:
+    image: rastasheep/ubuntu-sshd
+    expose:
+      - "22"
+    hostname: nginx
+  ansible:
+    image: rastasheep/ubuntu-sshd
+    expose:
+      - "22"
+    ports:
+      - "22:22"
+    hostname: ansible
+  clickhouse:
+    image: rastasheep/ubuntu-sshd
+    expose:
+      - "22"
+    hostname: clickhouse
+  postgres:
+    image: rastasheep/ubuntu-sshd
+    expose:
+      - "22"
+    hostname: postgres
