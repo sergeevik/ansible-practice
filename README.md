@@ -6,6 +6,7 @@
 0. Установить себе докер
 1. Скачать указанный выше образ командой `docker pull rastasheep/ubuntu-sshd`
 2. Перейти в каталог docker-compose-windows и выполнить кодманду `docker-compose --project-name ansible up -d`, все образы должны быть созданы со статусом done
+3. Остановить compose командой `docker-compose --project-name ansible down`
  
 ### Некоторые важные моменты на мой взгляд
 1. Каждый образ открывает 22 порт, чтобы к нему можно было подключиться по ssh внутри сети
