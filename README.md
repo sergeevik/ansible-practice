@@ -1,5 +1,3 @@
-# ansible-practice
-
 ## Проект для тренировки ansible
 
 Файл docker-compose.yml создает пачку образов на основе [Образа rastasheep/ubuntu-sshd](https://hub.docker.com/r/rastasheep/ubuntu-sshd)
