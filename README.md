@@ -2,6 +2,12 @@
 
 Файл docker-compose.yml создает пачку образов на основе [Образа rastasheep/ubuntu-sshd](https://hub.docker.com/r/rastasheep/ubuntu-sshd)
 
+## Как запустить
+0. Установить себе докер
+1. Скачать указанный выше образ командой `docker pull rastasheep/ubuntu-sshd`
+2. Перейти в каталог docker-compose-windows и выполнить кодманду `docker-compose --project-name ansible up -d`, все образы должны быть созданы со статусом done
+ 
+### Некоторые важные моменты на мой взгляд
 1. Каждый образ открывает 22 порт, чтобы к нему можно было подключиться по ssh внутри сети
 2. Образ ansible мапит localhost:22 на порт контейнера, чтобы можно было подключаться через ssh user@localhost
 3. В каждом образе создает дефолтный пользователь root с паролем root
