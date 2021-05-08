@@ -1,0 +1,38 @@
+---
+
+- name: Update and add ansible user with no password sudo by ssh key
+  become: yes
+  vars:
+    ansible_user: "{{ ROOT_USER }}"
+    ansible_password: "{{ ROOT_PASSWORD }}"
+    ansible_become_password: "{{ ROOT_PASSWORD }}"
+    new_user_password: "{{ ANSIBLE_PASSWORD }}"
+  hosts: all
+  tasks:
+      - name: add wheel group
+        group:
+          name: wheel
+          state: present
+      
+      - name: add ansible user
+        user:
+          name: ansible
+          groups: wheel
+          password: "{{ new_user_password }}"
+          createhome: yes
+          home: /home/ansible
+          state: present
+          shell: /bin/bash
+          uid: 20000
+          
+      - name: create ansible user authorized_keys file from
+        authorized_key:
+          user: ansible
+          state: present
+          key: "{{ lookup('file', ansible_ssh_public_key_file) }}"
+          
+      - name: configure sudoers
+        copy:
+          content: '%wheel ALL=(ALL:ALL) NOPASSWD:ALL'
+          dest: /etc/sudoers.d/wheel_nopasswd
+          mode: 0440

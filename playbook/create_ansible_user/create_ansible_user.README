@@ -1,0 +1,11 @@
+Запуск командой
+ansible-playbook create_ansible_user.yml --extra-var "ROOT_USER=super ROOT_PASSWORD=123 ANSIBLE_PASSWORD=123"
+
+Плейбук создаст пользователя с логином ansible и пролем ANSIBLE_PASSWORD 
+Для запуска надо указать логин и пароль пользователя, который имеет права на создание групп, пользователей и редактирование
+sudoers чтобы разрешить новому пользователю sudo без пароля.
+
+Переменные:
+ROOT_USER - логин рутового пользователя для создания пользователя ansible
+ROOT_PASSWORD - пароль рутового пользователя
+ANSIBLE_PASSWORD - пароль нового пользователя
